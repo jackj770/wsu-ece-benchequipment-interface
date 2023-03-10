@@ -1,6 +1,6 @@
 # WSU ECE Benchtop Equipment Toolset
 
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) ![PyVISA](https://pyvisa.readthedocs.io/en/latest/?badge=latest)
 
 A toolset for controlling and automating benchtop equipment for electronics testing. Built for ECE 5900 Digital Signal Processing Capstone Project. 
 
