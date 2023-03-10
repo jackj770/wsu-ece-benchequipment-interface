@@ -15,6 +15,8 @@ class labequipment:
         
 
     def _autoconnect(self):
+        """Auto connect functionality for connect VISA devices. It can find devices that are not lab equipment but will ignore those. 
+        """
         print("Attempting autodetect...")
         rm = pyvisa.ResourceManager()
         avail_dev = rm.list_resources()
@@ -38,6 +40,18 @@ class labequipment:
                     continue
 
     def _device_info_lookup(device_string):
+        """Checks to see if the devices are support and returns the command set. This may be deprecated soon. It was just an idea.
+        Parameters
+        ----------
+        idn : str
+            Device Mode String
+        Returns
+        -------
+        dev_type : str
+            Full name of device as seen on front of device
+        avail_commands : int
+            An integer for later use
+        """
         if device_string == "DSOX1204G":
             dev_type = "Keysight InfiniiVision Digital Oscilloscope 70 MHz - 2 GSa/s"
             avail_commands = 1
@@ -59,11 +73,31 @@ class labequipment:
             print(dev_name)
 
         def set_timebase(self, freq):
+            """Sets the timebase of the oscilloscope baesd on the given frequency
+            Parameters
+            ----------
+            freq : 
+                frequency for timebase to based on.
+            Returns
+            -------
+            None
+            """
             period = 1/freq
             scale = period / 2
             self._inst.write(":TIMebase:SCALe " + str(scale))
         
         def set_scale(self, vpp, channel):
+            """Sets the channel scale of the oscilloscope baesd on the given VPP
+            Parameters
+            ----------
+            vpp : 
+                Voltage of signal from wavegenerator
+            channel:
+                Channel of oscilloscope to be scaled based on vpp
+            Returns
+            -------
+            None
+            """
             self._inst.write(":CHANnel"+str(channel)+":SCALe " + str(vpp/2))
             for i in range(1,4):
                 self._inst.write(":CHANnel"+str(i)+":OFFSet " + str(-vpp/2))
