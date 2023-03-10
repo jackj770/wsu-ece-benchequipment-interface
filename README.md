@@ -7,8 +7,7 @@ A toolset for controlling and automating benchtop equipment for electronics test
 
 ## Description 
 
-Gathering data from benchtop equiopment can be a very tedious task espicially with any real precesion or resoltuion. For example, gathering frequency response data is painful when gathering more than a few data points over a few frequency steps. This toolset aims to make all these tasks easier by automating the process using standard benchtop equipment commands and PyVISA. 
-
+Gathering data from benchtop equipment can be a very tedious task, especially with any real precision or resolution. For example, gathering frequency response data is painful when gathering more than a few data points over a few frequency steps. This toolset aims to make all these tasks easier by automating the process using standard benchtop equipment commands and PyVISA.
 
 ## Acknowledgements
 
