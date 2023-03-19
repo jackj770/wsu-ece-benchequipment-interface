@@ -10,7 +10,7 @@ class labequipment:
         self.wavegen = 0 
         self.dmm = 0 
         self.powersupply = 0 
-        self._autoconnect()
+        # self._autoconnect()
         # self._userCommand()
         
 
