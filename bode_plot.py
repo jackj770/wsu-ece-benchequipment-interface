@@ -26,14 +26,14 @@ def getNewData():
     auto_proceed = False
     try:
         print("Connecting to Scope...")
-        scope = koa.Oscilloscope(address='')
+        scope = koa.Oscilloscope(address='USB0::0x2A8D::0x0396::CN62267101::0::INSTR')
         scope.acq_type = 'AVER8'
     except:
         print("Failed to connect. Check connections and try again")
         exit()
     # try:
     print("Connecting to Function Generator...")
-    gen = wavegen.Wavegen(address='') 
+    gen = wavegen.Wavegen(address='USB0::0x2A8D::0x8D01::CN62230076::0::INSTR') 
     # except:
     #     print("Failed to connect. Check connections and try again")
     #     exit() 
@@ -85,7 +85,7 @@ def getNewData():
         if not auto_proceed:
             input("Press enter to capture data at freq: " + str(val))
         else:
-            gen.write("SYSTem:BEEPer[:IMMediate]")
+            # gen.write("SYSTem:BEEPer[:IMMediate]")
             print("Next data capture at freq: " + str(val))
         if Hunt:
             scope.write(":TIMebase:SCALe " + str(timebase))
@@ -216,7 +216,7 @@ if __name__ == "__main__":
         print("%f, " % i, end='')   
 
     fig, axs = plt.subplots(2, sharex=True)
-    axs[0].semilogx(freq_array, mag_meas)
+    axs[0].plot(freq_array, mag_meas)
     axs[0].set_title("Magnitude Response")
     axs[0].set(ylabel = "Magnitude (dB)")
     axs[0].grid()
