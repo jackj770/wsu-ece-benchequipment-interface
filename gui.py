@@ -62,29 +62,32 @@ while True:
         print(status)
         window['-OSCOPE-'].update(status[0])
         window['-FUNC-'].update(status[1])
-    if values['-TEST_SELECT-'] != current_test:
-        current_test = values['-TEST_SELECT-']
-        for x in test_list:
-            if x == values['-TEST_SELECT-']:
-                window[f'-{x}-'].update(visible=True)
-            else:
-                window[f'-{x}-'].update(visible=False)
-    if event == 'Set Freqency':
-        labObject.wavegen.set_freq(values['-SET_FREQ-'])
-        labObject.wavegen.set_vpp(values['-SET_VPP-'])
-    
-    if event == 'Turn On':
-        labObject.wavegen.on()
-    if event == 'Turn Off':
-        labObject.wavegen.off()
+    try:
+        if values['-TEST_SELECT-'] != current_test:
+            current_test = values['-TEST_SELECT-']
+            for x in test_list:
+                if x == values['-TEST_SELECT-']:
+                    window[f'-{x}-'].update(visible=True)
+                else:
+                    window[f'-{x}-'].update(visible=False)
+        if event == 'Set Freqency':
+            labObject.wavegen.set_freq(values['-SET_FREQ-'])
+            labObject.wavegen.set_vpp(values['-SET_VPP-'])
+        
+        if event == 'Turn On':
+            labObject.wavegen.on()
+        if event == 'Turn Off':
+            labObject.wavegen.off()
 
-    if event == 'Run Test':
-        # labObject.frequency_response(100, 2000, 100, 2)
-        resp = labObject.frequency_response(values['-START_FREQ-'], values['-STOP_FREQ-'], values['-FREQRESP_STEPS-'], values['-FREQRESP_VPP-'])
-        if(resp == 1):
-            labequipment.readExisting("bode_plot.txt")
-    if event == 'Stop Test':
-        labObject.wavegen.off()
-
+        if event == 'Run Test':
+            # labObject.frequency_response(100, 2000, 100, 2)
+            resp = labObject.frequency_response(values['-START_FREQ-'], values['-STOP_FREQ-'], values['-FREQRESP_STEPS-'], values['-FREQRESP_VPP-'])
+            if(resp == 1):
+                labequipment.readExisting("bode_plot.txt")
+        if event == 'Stop Test':
+            labObject.wavegen.off()
+    except:
+        print("Error: Please connect to devices")
+        sg.popup("Error: Please connect to devices")
 
 window.close()

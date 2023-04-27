@@ -93,6 +93,21 @@ Currently accepts:
 labObject.wavegen.set_waveform('sine')
 ```
 
+### **Reading Files**
+
+This `labequipment` object can also read files created by itself.
+
+Returns:
+ - Frequecy array in numpy array
+ - Magnitude array in numpy array
+ - Phase array in numpy array
+ 
+The "bode_plot.txt" is hard coded. 
+
+```
+freq, mag, phase = labequipment.readExisting("bode_plot.txt")
+```
+
 
 ### **Toolset GUI**
 

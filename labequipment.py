@@ -47,6 +47,8 @@ def readExisting(filename):
     axs[1].grid()
     plt.show()
 
+    return np.array(freq_array) , np.array(db), np.array(phase_array)
+
 
 class labequipment:
 
