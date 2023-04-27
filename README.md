@@ -18,7 +18,6 @@ Gathering data from benchtop equipment can be a very tedious task, especially wi
 
 ## How To Use
 
-This Python Library is setup in two portions:
  - [Keysight Interface API](#keysight-interface-api) 
    - [Connecting to Devices](#how-to-connect-to-devices)
    - [Frequnecy Response Test](#running-frequency-response-tests)
