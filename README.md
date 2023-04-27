@@ -17,7 +17,42 @@ This Python Library is setup in two portions:
 
 ### Keysight Interface API
 
-The API is used for implementing commands in your own Python code. After the object has been instantiated you can call simple functions that will automate tasks typically done by hand or on the oscilloscope
+The API is used for implementing commands in your own Python code. After the object has been instantiated you can call simple functions that will automate tasks typically done by hand or on the oscilloscope.
+
+**How to connect to devices:**
+
+```
+\\ Instantidate object 
+labObject = labequipment.labequipment()
+
+\\ Autoconnect to available devices
+labObject._autoconnect()
+```
+
+**Running Frequency Response Tests**
+
+Running frequency tests using the  `frequency_response` method:
+
+`frequency_response(START_FREQ, STOP_FREQ, STEPS, VPP)`
+
+This method will control the oscilloscope and waveform generator to step through the frequency range at the given voltage. It will get the phase and magnitude. 
+
+Requires:
+ - Input 1 on oscilloscope to be reference
+ - Input 2 on oscilloscope to be device under test 
+
+```
+start_freq = 100
+stop_freq = 1000
+steps = 100
+vpp = 2
+
+labObject.frequency_response(start_freq, stop_freq, steps, vpp)
+```
+Returns nothing. Plots and writes results to `bode_plot.txt`
+
+**Controlling the Wavegenerator**
+
 
 ### Toolset GUI
 
@@ -27,6 +62,9 @@ Currently in the GUI you can:
  - Connect to the equipment
  - Set specific frequencies on the wavefrom generator
  - Run a frequnecy reponse test
+
+To start the GUI, run the `gui.py` script
+
 
 ## Acknowledgements
 
