@@ -135,6 +135,8 @@ To start the GUI, run the `gui.py` script
  - [Keysight Infiniium Oscilloscopes Programming Guide](https://keysight-docs.s3-us-west-2.amazonaws.com/keysight-pdfs/DSOV084A/Programmer_s+Guide+for+Infiniium+Oscilloscop.pdf)
  - [IEEE 448.2 Common Commands](https://rfmw.em.keysight.com/spdhelpfiles/truevolt/webhelp/US/Content/__I_SCPI/IEEE-488_Common_Commands.htm)
 
+ - Created for the Digital Signal Processing course at Weber State University
+
 ## Authors
 
 - [@jackj770](https://github.com/jackj770)
