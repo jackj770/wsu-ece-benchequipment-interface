@@ -19,14 +19,22 @@ Gathering data from benchtop equipment can be a very tedious task, especially wi
 ## How To Use
 
 This Python Library is setup in two portions:
- - Keysight Interface API 
- - Toolset GUI
+ - [Keysight Interface API](#keysight-interface-api) 
+   - [Connecting to Devices](#how-to-connect-to-devices)
+   - [Frequnecy Response Test](#running-frequency-response-tests)
+   - [Controlling Waveform Generator](#controlling-the-wavegenerator)
+     - [on/off](#turning-onoff-wavegen)
+     - [Set Frequency](#setting-frequency)
+     - [Set Voltage](#setting-vpp)
+     - [Set Waveform](#setting-waveform)
+    - [Reading Files](#reading-files)
+ - [Toolset GUI](#toolset-gui)
 
 ### **Keysight Interface API**
 
 The API is used for implementing commands in your own Python code. After the object has been instantiated you can call simple functions that will automate tasks typically done by hand or on the oscilloscope.
 
--- **How to connect to devices:** --
+#### -- **How to connect to devices:** --
 
 ```
 \\ Instantidate object 
@@ -36,7 +44,7 @@ labObject = labequipment.labequipment()
 labObject._autoconnect()
 ```
 
--- **Running Frequency Response Tests** --
+#### -- **Running Frequency Response Tests** --
 
 Running frequency tests using the  `frequency_response` method:
 
@@ -58,17 +66,17 @@ labObject.frequency_response(start_freq, stop_freq, steps, vpp)
 ```
 Returns nothing. Plots and writes results to `bode_plot.txt`
 
--- **Controlling the Wavegenerator** --
+#### -- **Controlling the Wavegenerator** --
 All of the standard functions on the wave generator are available to control.
 
-*Turning on/off wavegen*
+##### *Turning on/off wavegen*
 
 ```
 labObject.wavegen.on()
 labObject.wavegen.off()
 ```
 
-*Setting frequency*
+##### *Setting frequency*
 
 Accepted ranges are the same of the connected waveform generator
 ```
@@ -76,7 +84,7 @@ FREQ = 1000
 labObject.wavegen.set_freq(FREQ)
 ```
 
-*Setting Vpp*
+##### *Setting Vpp*
 
 Accepted ranges are the same of the connected waveform generator
 ```
@@ -84,7 +92,7 @@ VPP = 2
 labObject.wavegen.set_vpp(VPP)
 ```
 
-*Setting waveform*
+##### *Setting waveform*
 
 Currently accepts:
  - sine
