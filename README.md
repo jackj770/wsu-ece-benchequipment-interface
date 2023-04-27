@@ -9,6 +9,25 @@ A toolset for controlling and automating benchtop equipment for electronics test
 
 Gathering data from benchtop equipment can be a very tedious task, especially with any real precision or resolution. For example, gathering frequency response data is painful when gathering more than a few data points over a few frequency steps. This toolset aims to make all these tasks easier by automating the process using standard benchtop equipment commands and PyVISA.
 
+## How To Use
+
+This Python Library is setup in two portions:
+ - Keysight Interface API 
+ - Toolset GUI
+
+### Keysight Interface API
+
+The API is used for implementing commands in your own Python code. After the object has been instantiated you can call simple functions that will automate tasks typically done by hand or on the oscilloscope
+
+### Toolset GUI
+
+The GUI is a visual wrapper for the API and let's you control the arbitrary waveform generator and oscilloscope.
+
+Currently in the GUI you can:
+ - Connect to the equipment
+ - Set specific frequencies on the wavefrom generator
+ - Run a frequnecy reponse test
+
 ## Acknowledgements
 
  - [PyVISA](https://github.com/pyvisa/pyvisa)
