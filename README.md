@@ -95,7 +95,7 @@ labObject.wavegen.set_vpp(VPP)
 
 Currently accepts:
  - sine
- - sqaure
+ - squeare
 ```
 labObject.wavegen.set_waveform('sine')
 ```
